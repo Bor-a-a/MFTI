@@ -1,0 +1,17 @@
+all: Prog_12
+
+Prog_12: main.o gen_api.o int_data.o
+	gcc -o Prog_12 main.o gen_api.o int_data.o
+
+main.o: main.c gen_api.h int_data.h
+	gcc -c -o main.o main.c
+
+gen_api.o: gen_api.c gen_api.h
+	gcc -c -o gen_api.o gen_api.c
+
+int_data.o: int_data.c int_data.h
+	gcc -c -o int_data.o int_data.c
+
+clean:
+	del *.o
+	del Prog_12.exe
